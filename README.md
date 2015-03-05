@@ -1,21 +1,21 @@
 # Quake-like console for OpenBox
 
-Python 3 script for displaying "quake-like" urxvt console in OpenBox.
+Python 3 script for displaying "quake-like" uRXVt console in OpenBox.
 
 
-## What it is
+## How it works
 
-Console has two states: visible or hidden. Visible console appears on top of a screen above all windows and on all desktops. Hidden console is completely unmaped.
+Console has two states: visible or hidden. Visible console appears on top of a screen above all windows and on all desktops. Hidden console is completely invisible (its window is unmaped).
 
 
 ## How to run it
 
 Code is written in Python 3 and uses:
- * urxvt terminal,
+ * uRXVT terminal,
  * python Xlib and EWMH packages (both in PIP),
- * xmessage command (i.e. Xorg utlity) for displaying error (not necessary).
+ * xmessage command (i.e. Xorg utlity) for displaying error (can be omited).
 
-Script is intended to be used from Openbox's *rc.xml* file like this:
+Script is intended to be used from OpenBox's *rc.xml* file like this:
 
     <keybind key="W-t">
        <action name="Execute">
@@ -26,6 +26,8 @@ Script is intended to be used from Openbox's *rc.xml* file like this:
 
 ## Possible improvements
 
- * Avoiding linear search of all windows by caching window id somewhere? (In root window as a property?)
- * Remembering window geometry when unmapping and seting it back when mapping.
- * Getting command to run as a script parameter instead of hard-coded urxvt terminal.
+ - [ ] Avoiding linear search of all windows by caching window ID somewhere? (In root window as a property?)
+ - [ ] Remembering window geometry when unmapping and seting it back when mapping.
+ - [ ] Getting command to run as a script parameter instead of hard-coded uRXVT terminal.
+ - [ ] Making it work with all EWMH compliant window managers.
+
