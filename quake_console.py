@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from math import floor
 from subprocess import Popen
 from time import sleep
