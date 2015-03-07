@@ -19,9 +19,11 @@ Script is intended to be used from OpenBox's *rc.xml* file like this:
 
     <keybind key="W-t">
        <action name="Execute">
-          <command>python /path/to/quake_console.py</command>
+          <command>/path/to/quake_console.py</command>
        </action>
     </keybind>
+
+This calls the script whenever Window key and "t" key are pressed together.
 
 
 ## Possible improvements
@@ -29,5 +31,5 @@ Script is intended to be used from OpenBox's *rc.xml* file like this:
  - [ ] Avoiding linear search of all windows by caching window ID somewhere? (In root window as a property?)
  - [ ] Remembering window geometry when unmapping and seting it back when mapping.
  - [ ] Getting command to run as a script parameter instead of hard-coded uRXVt terminal.
- - [ ] Making it work with all EWMH compliant window managers.
+ - [ ] Making it somehow work with all EWMH compliant window managers.
 
