@@ -11,7 +11,7 @@ Console has two states: visible or hidden. Visible console appears on top of a s
 ## How to run it
 
 Code is written in Python 3 and uses:
- * uRXVT terminal,
+ * uRXVt terminal,
  * python Xlib and EWMH packages (both in PIP),
  * xmessage command (i.e. Xorg utlity) for displaying error (can be omited).
 
@@ -28,6 +28,6 @@ Script is intended to be used from OpenBox's *rc.xml* file like this:
 
  - [ ] Avoiding linear search of all windows by caching window ID somewhere? (In root window as a property?)
  - [ ] Remembering window geometry when unmapping and seting it back when mapping.
- - [ ] Getting command to run as a script parameter instead of hard-coded uRXVT terminal.
+ - [ ] Getting command to run as a script parameter instead of hard-coded uRXVt terminal.
  - [ ] Making it work with all EWMH compliant window managers.
 
