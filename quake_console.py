@@ -9,7 +9,8 @@ from ewmh import EWMH
 
 
 CONSOLE_PROPERTY_NAME = 'quake_console'
-SLEEP_TIME = 0.03
+SLEEP_TIME = 0.03 # How much time in second to wait until terminal opens its window.
+MAX_ATTEMPTS = 10 # How many times try to look for opened terminal.
 CONSOLE_HEIGHT_RATIO = 0.38 # = Golden ratio.
 
 
@@ -48,9 +49,11 @@ def getWindowByPid(pid):
 
 def waitForResult(f, param):
 	result = None
-	while result is None:
+	attempt = 0
+	while (result is None) and (attempt < MAX_ATTEMPTS):
 		sleep(SLEEP_TIME)
 		result = f(param)
+		attempt += 1
 	return result
 
 
@@ -70,6 +73,10 @@ def getConsoles():
 	return consoles
 
 
+def showError(errorMsg):
+	Popen(['xmessage', '-center', errorMsg])
+
+
 
 ewmh = EWMH()
 display = ewmh.display
@@ -87,12 +94,15 @@ if consolesLen == 0:
 	# Start the console.
 	pid = Popen(['urxvt']).pid
 	console = waitForResult(getWindowByPid, pid)
-	# Configure it.
-	setAppearance(console, True)
-	# Mark it and say it is mapped.
-	setConsoleProperty(console, 1)
-	# Focus it.
-	ewmh.setActiveWindow(console)
+	if console is None:
+		showError('Error: Starting the console was not successful!')
+	else:
+		# Console is running - configure it.
+		setAppearance(console, True)
+		# Mark it and say it is mapped.
+		setConsoleProperty(console, 1)
+		# Focus it.
+		ewmh.setActiveWindow(console)
 
 elif consolesLen == 1:
 	# Console is running.
@@ -107,14 +117,15 @@ elif consolesLen == 1:
 		# Console is unmapped. Map it.
 		setConsoleProperty(console, 1)
 		console.map()
-		# Configure it again.
+		# Configure it again, because it seems many properties
+		# are lost after unmapping...
 		setAppearance(console, True)
 		# And focus it.
 		ewmh.setActiveWindow(console)
 
 else:
 	# This should not happen...
-	subprocess.Popen(['xmessage', '-center', 'Error: More than one console found!'])
+	showError('Error: More than one console found!')
 
 
 display.flush()
