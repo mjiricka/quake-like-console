@@ -40,9 +40,10 @@ def getWindowByPid(pid):
 		window = display.create_resource_object('window', windowId)
 		prop = window.get_full_property(
 			display.intern_atom('_NET_WM_PID'), X.AnyPropertyType)
-		windowPid = prop.value[0]
-		if windowPid == pid:
-			return window
+		if prop != None:
+			windowPid = prop.value[0]
+			if windowPid == pid:
+				return window
 
 	return None # Window not found.
 
