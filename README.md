@@ -10,9 +10,9 @@ I find very useful to access a shell anytime from anywhere with just one key com
 I enjoy the console particularly in these cases:
 
  * Upgrading the system, because downloading packages take some time and I can quickly check a progress.
- * Using a command line utilities like **cal**, **date** or **setxkbmap**.
+ * Using a command line utilities like *cal*, *date* or *setxkbmap*.
  * When I need to run some program but Run script dialog is not enough.
- * Check a man page.
+ * Checking a man page.
 
 
 ## How it works
@@ -23,9 +23,9 @@ Console has two states: visible or hidden. Visible console appears on top of a s
 ## How to run it
 
 Code is written in Python 3 and uses:
- * uRXVt terminal,
- * python Xlib and EWMH packages (both in PIP),
- * xmessage command (i.e. Xorg utlity) for displaying error (can be omited).
+ * *uRXVt* terminal,
+ * python *Xlib* and *EWMH* packages (both in PIP),
+ * Command *xmessage* (i.e. Xorg utlity) for displaying errors (can be omited).
 
 Script is intended to be used from OpenBox's *rc.xml* file like this:
 
