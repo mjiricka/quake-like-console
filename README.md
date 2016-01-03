@@ -38,10 +38,18 @@ Script is intended to be used from OpenBox's *rc.xml* file like this:
 This calls the script whenever Window key and "t" key are pressed together.
 
 
+## Implementation notes
+
+Unfortunately, I do not know X11 protocol so well, so I had some problems with handling
+position and size of a terminal window. In code are two comments that say I do not
+know why things are done this way, but it works for me.
+
+
 ## Possible improvements
 
  - [X] Avoiding linear search of all windows by caching window ID somewhere? (In root window as a property?)
  - [X] Remembering window geometry when unmapping and seting it back when mapping.
  - [ ] Getting command to run as a script parameter instead of hard-coded uRXVt terminal.
  - [ ] Making it somehow work with all EWMH compliant window managers.
+ - [ ] After start, console has full width (thants to *_NET_WM_STATE_MAXIMIZED_HORZ* hint), but when size is set via window.configure, window can be smaller than.
 
