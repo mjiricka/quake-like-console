@@ -17,6 +17,7 @@ MAPPED = 0
 UNMAPPED = 1
 
 CONSOLE_HEIGHT_RATIO = 0.38 # = Golden ratio.
+CONSOLE_TITLE = 'quake console'
 
 CONSOLE_PROP_NAME = 'quake_console'
 CONSOLE_GEOMETRY_PROP_NAME = 'quake_console_geometry'
@@ -127,7 +128,7 @@ def start_new_console():
     ROOT.change_attributes(event_mask=X.SubstructureNotifyMask)
 
     # Start the console.
-    pid = Popen(['urxvt']).pid
+    pid = Popen(['urxvt', '-name', CONSOLE_TITLE]).pid
 
     # Wait for window.
     for _ in range(1, 1000):
