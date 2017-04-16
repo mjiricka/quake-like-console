@@ -1,5 +1,9 @@
 # Quake-like console for OpenBox
 
+**UPDATE: THIS SCRIPT HAS NEVER WORKED RELIABLY, I AM NOT SURE WHY, SO I STOPPED USING IT.**
+
+---
+
 Script for displaying uRXVt terminal as quake-like console. Written in Python3, works in OpenBox.
 
 The script shows undecorated terminal window on top of all windows and on all desktops at top of a screen (hence "quake-like"). When the script is run again, the terminal becomes hidden. After another run, the terminal becomes visible again.
